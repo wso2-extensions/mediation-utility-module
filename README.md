@@ -1,8 +1,11 @@
 # Utility Module Overview
 
-The Utility Module allows you to do math function such as generating a random integer, string function such as transform a string to uppercase and lowercase, get the length of a string, generate a random UUID, check a string against a regular expression.
+The Utility Module allows you to do math function such as generating a random integer, string function such as transform
+a string to uppercase and lowercase, get the length of a string, generate a random UUID, check a string against a
+regular expression.
 
-To see the available Utility Module, navigate to the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Utility".
+To see the available Utility Module, navigate to
+the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and search for "Utility".
 
 ## Compatibility
 
