@@ -1,0 +1,41 @@
+{
+  "connectorName": "Utility",
+  "operationName": "math.GetRandomInt",
+  "title": "Get a random integer",
+  "help": "",
+  "elements": [
+    {
+      "type": "attribute",
+      "value": {
+        "name": "lowerBound",
+        "displayName": "Lower bound",
+        "inputType": "string",
+        "defaultValue": "",
+        "required": "false",
+        "helpTip": ""
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "upperBound",
+        "displayName": "Upper bound",
+        "inputType": "string",
+        "defaultValue": "",
+        "required": "false",
+        "helpTip": ""
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "target",
+        "displayName": "Target Property",
+        "inputType": "stringOrExpression",
+        "defaultValue": "random",
+        "required": "true",
+        "helpTip": "Enter the property name. (default:'random')"
+      }
+    }
+  ]
+}

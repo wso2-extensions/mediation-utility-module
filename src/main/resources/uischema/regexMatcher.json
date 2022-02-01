@@ -1,0 +1,41 @@
+{
+  "connectorName": "Utility",
+  "operationName": "string.RegexMatcher",
+  "title": "Transform string to lowercase",
+  "help": "",
+  "elements": [
+    {
+      "type": "attribute",
+      "value": {
+        "name": "string",
+        "displayName": "Input String",
+        "inputType": "string",
+        "defaultValue": "",
+        "required": "true",
+        "helpTip": "Connection to be used"
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "regex",
+        "displayName": "Regular Expression",
+        "inputType": "string",
+        "defaultValue": "",
+        "required": "true",
+        "helpTip": "Connection to be used"
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "target",
+        "displayName": "Target Property",
+        "inputType": "string",
+        "defaultValue": "match",
+        "required": "true",
+        "helpTip": "Enter the property name. (default:'match')"
+      }
+    }
+  ]
+}
