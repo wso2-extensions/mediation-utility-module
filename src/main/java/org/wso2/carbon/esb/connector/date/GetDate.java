@@ -43,7 +43,7 @@ public class GetDate extends AbstractConnector {
             String date = Date.getDate(dateFormat);
             messageContext.setProperty(saveToProperty, date);
         } catch (IllegalDateFormatException exception) {
-            log.error(exception);
+            log.error("Invalid date format",exception.getCause());
         }
     }
 }

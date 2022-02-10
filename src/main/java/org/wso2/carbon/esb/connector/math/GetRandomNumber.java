@@ -23,6 +23,7 @@ import org.wso2.carbon.connector.core.AbstractConnector;
 import org.wso2.carbon.connector.core.ConnectException;
 import org.wso2.carbon.esb.connector.math.utils.RandomNumberGenerator;
 import org.wso2.carbon.esb.connector.math.utils.constants.Constant;
+import org.wso2.carbon.esb.connector.math.utils.exception.InvalidBoundException;
 
 import java.util.Optional;
 
@@ -45,8 +46,8 @@ public class GetRandomNumber extends AbstractConnector {
             //Get the random number
             randomNumber = RandomNumberGenerator.generateRandomInteger(origin, bound);
             messageContext.setProperty(saveTo, randomNumber);
-        } catch (IllegalArgumentException e) {
-            log.error(e);
+        } catch (InvalidBoundException e) {
+            log.error("Invalid bound provided.",e.getCause());
         }
     }
 }

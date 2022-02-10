@@ -69,11 +69,11 @@ public class Sign extends AbstractConnector {
                 messageContext.setProperty(saveToProperty, sign);
             } catch (NoSuchAlgorithmException e) {
                 log.error("Invalid Algorithm: ", e);
-            } catch (InvalidKeyException e) {
-                log.error(e);
+            } catch (Exception e) {
+                log.error("Invalid secret provided",e);
             }
         } catch (InvalidParameterValueException e) {
-            log.error(e);
+            log.error(e.getMessage(),e.getCause());
         }
     }
 }

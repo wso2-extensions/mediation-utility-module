@@ -44,11 +44,11 @@ public class PayloadReader {
                 ((Axis2MessageContext) messageContext).getAxis2MessageContext();
         String payloadType = (String) axis2mc.getProperty(payloadTypePropertyName);
         switch (payloadType) {
-            case MIMETypes.application_json:
+            case MIMETypes.APPLICATION_JSON:
                 return PayloadReader.getJSONPayload(messageContext);
-            case MIMETypes.application_xml:
+            case MIMETypes.APPLICATION_XML:
                 return PayloadReader.getXMLPayload(messageContext);
-            case MIMETypes.text_plain:
+            case MIMETypes.TEXT_PLAIN:
                 return PayloadReader.getTextPayload(messageContext);
             default:
                 throw new NoSuchContentTypeException("The content type " + payloadType + " is not defined.");

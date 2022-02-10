@@ -18,6 +18,8 @@
 
 package org.wso2.carbon.esb.connector.math.utils;
 
+import org.wso2.carbon.esb.connector.math.utils.exception.InvalidBoundException;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomNumberGenerator {
@@ -33,12 +35,12 @@ public class RandomNumberGenerator {
      * @param bound  Upper bound for the random number
      * @return random integer in the given range
      */
-    public static int generateRandomInteger(int origin, int bound) {
+    public static int generateRandomInteger(int origin, int bound) throws InvalidBoundException {
 
         try {
             return ThreadLocalRandom.current().nextInt(origin, bound);
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Lower bound > Upper bound", e);
+            throw new InvalidBoundException(e);
         }
     }
 }

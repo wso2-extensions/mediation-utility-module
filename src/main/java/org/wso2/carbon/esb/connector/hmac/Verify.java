@@ -72,11 +72,11 @@ public class Verify extends AbstractConnector {
                 messageContext.setProperty(saveToProperty, verifyResult);
             } catch (NoSuchAlgorithmException e) {
                 log.error("Invalid Algorithm: ", e);
-            } catch (InvalidKeyException e) {
-                log.error("Secret not provided",e);
+            } catch (Exception e) {
+                log.error("Invalid secret provided",e);
             }
         } catch (InvalidParameterValueException e) {
-            log.error(e);
+            log.error(e.getMessage(),e.getCause());
         }
     }
 }

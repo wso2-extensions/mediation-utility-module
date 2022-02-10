@@ -34,7 +34,7 @@ public class RandomUUID extends AbstractConnector {
     public void connect(MessageContext messageContext) throws ConnectException {
 
         Optional<String> saveToPropertyOptional = getStringProperty(messageContext, "target");
-        String saveToProperty = saveToPropertyOptional.orElse(Constant.saveToPropertyUUID);
+        String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_TO_PROPERTY_UUID);
         //generate a random UUID
         UUID uuid = UUID.randomUUID();
         messageContext.setProperty(saveToProperty, uuid.toString());

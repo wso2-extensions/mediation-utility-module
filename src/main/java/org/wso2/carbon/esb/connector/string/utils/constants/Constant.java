@@ -20,8 +20,8 @@ package org.wso2.carbon.esb.connector.string.utils.constants;
 
 public class Constant {
 
-    public static final String saveToPropertyCaseChanger = "result";
-    public static final String SaveToPropertyLength = "length";
-    public static final String saveToPropertyUUID = "uuid";
-    public static final String saveToPropertyRegexMatcher = "match";
+    public static final String SAVE_TO_PROPERTY_CASE_CHANGER = "result";
+    public static final String SAVE_TO_PROPERTY_LENGTH = "length";
+    public static final String SAVE_TO_PROPERTY_UUID = "uuid";
+    public static final String SAVE_TO_PROPERTY_REGEX_MATCHING = "match";
 }

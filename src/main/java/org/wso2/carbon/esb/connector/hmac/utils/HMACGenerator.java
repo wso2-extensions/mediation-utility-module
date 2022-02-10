@@ -44,18 +44,18 @@ public class HMACGenerator {
      * @param algorithm Signing algorithm.
      * @return Signature for the payload.
      */
-    public static String generateSignature(String payload, String secret, String algorithm) throws NoSuchAlgorithmException, InvalidKeyException {
+    public static String generateSignature(String payload, String secret, String algorithm) throws Exception {
 
         try {
             Mac mac = getMacInstance(algorithm);
             if (StringUtils.isBlank(secret) || StringUtils.isEmpty(secret)) {
-                throw new NullPointerException();
+                throw new Exception();
             }
             final SecretKeySpec signingKey = new SecretKeySpec(secret.getBytes(), algorithm);
             mac.init(signingKey);
             return toHexString(mac.doFinal(payload.getBytes()));
         } catch (NoSuchAlgorithmException e) {
-            throw new NoSuchAlgorithmException("Invalid algorithm", e);
+            throw new NoSuchAlgorithmException(e);
         } catch (InvalidKeyException e) {
             throw new InvalidKeyException(e);
         }

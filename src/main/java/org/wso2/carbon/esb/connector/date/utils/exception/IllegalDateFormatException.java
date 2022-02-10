@@ -19,11 +19,17 @@
 package org.wso2.carbon.esb.connector.date.utils.exception;
 
 public class IllegalDateFormatException extends Exception {
-    public IllegalDateFormatException(String message){
+
+    public IllegalDateFormatException(Throwable cause){
+        super(cause);
+    }
+    public IllegalDateFormatException(String message) {
+
         super(message);
     }
 
-    public IllegalDateFormatException(String message,Throwable cause){
-        super(message,cause);
+    public IllegalDateFormatException(String message, Throwable cause) {
+
+        super(message, cause);
     }
 }

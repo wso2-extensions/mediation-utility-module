@@ -39,7 +39,7 @@ public class Date {
         try {
             formatter = new SimpleDateFormat(dateFormat);
         } catch (IllegalArgumentException e) {
-            throw new IllegalDateFormatException("Illegal date format");
+            throw new IllegalDateFormatException(e);
         }
         return formatter.format(new java.util.Date());
     }

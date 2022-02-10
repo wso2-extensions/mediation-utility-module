@@ -24,12 +24,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.wso2.carbon.esb.connector.math.utils.RandomNumberGenerator;
+import org.wso2.carbon.esb.connector.math.utils.exception.InvalidBoundException;
 
 @ExtendWith(MockitoExtension.class)
 public class RandomIntegerGeneratorTest {
 
     @Test
-    void test_RandomNumberGenerator_ValidOriginBound_randomNumberGeneratedInCorrectRange() {
+    void test_RandomNumberGenerator_ValidOriginBound_randomNumberGeneratedInCorrectRange() throws InvalidBoundException {
 
         int origin = 0;
         int bound = 5;

@@ -39,7 +39,7 @@ public class RegexMatcher extends AbstractConnector {
         Optional<String> saveToPropertyOptional = getStringProperty(messageContext, "target");
         String input = inputOptional.orElse("");
         String regex = regexOptional.orElse("");
-        String saveToProperty = saveToPropertyOptional.orElse(Constant.saveToPropertyRegexMatcher);
+        String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_TO_PROPERTY_REGEX_MATCHING);
         try {
             //check the string with the regex
             Boolean matching = matches(regex, input);

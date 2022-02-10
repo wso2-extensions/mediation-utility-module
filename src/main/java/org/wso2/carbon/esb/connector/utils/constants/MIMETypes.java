@@ -20,7 +20,7 @@ package org.wso2.carbon.esb.connector.utils.constants;
 
 public class MIMETypes {
 
-    public static final String application_json = "application/json";
-    public static final String application_xml = "application/xml";
-    public static final String text_plain = "text/plain";
+    public static final String APPLICATION_JSON = "application/json";
+    public static final String APPLICATION_XML = "application/xml";
+    public static final String TEXT_PLAIN = "text/plain";
 }
