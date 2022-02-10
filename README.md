@@ -22,6 +22,14 @@ the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and
 
 For older versions, see the details in the connector store.
 
+## Building from the source
+
+Follow the steps given below to build the Utility module from the source code.
+
+1. Get a clone or download the source from [Github](https://github.com/wso2-extensions/mediation-utility-module).
+2. Run the following Maven command from the `mediation-utility-module` directory: `mvn clean install`.
+3. The ZIP file of the connector is created in the `mediation-utility-module/target` directory.
+
 ## How to contribute
 
 As an open source project, WSO2 extensions welcome contributions from the community.
