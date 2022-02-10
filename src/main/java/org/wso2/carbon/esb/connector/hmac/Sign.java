@@ -39,15 +39,15 @@ public class Sign extends AbstractConnector {
 
     @Override
     public void connect(MessageContext messageContext) throws ConnectException {
-        //Reading properties from the message context
+        //Reading properties from the message context.
         Optional<String> payloadFromOptional = PropertyReader.getStringProperty(messageContext, "payload");
         Optional<String> customPayloadOptional = PropertyReader.getStringProperty(messageContext, "customPayload");
         Optional<String> secretOptional = PropertyReader.getStringProperty(messageContext, "secret");
         Optional<String> saveToPropertyOptional = PropertyReader.getStringProperty(messageContext, "target");
         String payload = null;
-        //Reading the payload from body or property
+        //Reading the payload from body or property.
         if (payloadFromOptional.isPresent() && StringUtils.equalsIgnoreCase(payloadFromOptional.get(),
-                Constant.payloadFromDefault)) {
+                Constant.PAYLOAD_FROM_DEFAULT)) {
             try {
                 payload = PayloadReader.getPayload(messageContext);
             } catch (NoSuchContentTypeException e) {
@@ -59,7 +59,7 @@ public class Sign extends AbstractConnector {
             payload = customPayloadOptional.orElse("");
         }
         String secret = secretOptional.orElse("");
-        String saveToProperty = saveToPropertyOptional.orElse(Constant.saveSignResultTo);
+        String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_SIGN_RESULT_TO);
         try {
             HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, "algorithm", HMACAlgorithm.class
                     , HMACAlgorithm.HMACSHA1);
@@ -71,8 +71,6 @@ public class Sign extends AbstractConnector {
                 log.error("Invalid Algorithm: ", e);
             } catch (InvalidKeyException e) {
                 log.error(e);
-            } catch (NullPointerException e) {
-                log.error("Secret is not provided", e);
             }
         } catch (InvalidParameterValueException e) {
             log.error(e);

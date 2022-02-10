@@ -18,6 +18,8 @@
 
 package org.wso2.carbon.esb.connector.date.utils;
 
+import org.wso2.carbon.esb.connector.date.utils.exception.IllegalDateFormatException;
+
 import java.text.Format;
 import java.text.SimpleDateFormat;
 
@@ -27,16 +29,17 @@ public class Date {
 
     }
 
-    /*
-     *
+    /**
+     * @param dateFormat String.
+     * @return currentDate String.
      */
-    public static String getDate(String dateFormat) {
+    public static String getDate(String dateFormat) throws IllegalDateFormatException {
 
         Format formatter;
         try {
             formatter = new SimpleDateFormat(dateFormat);
         } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("Illegal date format", e);
+            throw new IllegalDateFormatException("Illegal date format");
         }
         return formatter.format(new java.util.Date());
     }

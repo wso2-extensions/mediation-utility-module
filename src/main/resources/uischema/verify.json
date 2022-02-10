@@ -63,7 +63,7 @@
         "name": "algorithm",
         "displayName": "Algorithm",
         "inputType": "comboOrExpression",
-        "defaultValue": "HmacSHA1",
+        "defaultValue": "HMACSHA1",
         "required": "false",
         "comboValues": [
           "HMACSHA1",

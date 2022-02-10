@@ -37,9 +37,9 @@ public class GetRandomNumber extends AbstractConnector {
         Optional<Integer> originOptional = getIntProperty(messageContext, "lowerBound");
         Optional<Integer> boundOptional = getIntProperty(messageContext, "upperBound");
         Optional<String> saveToPropertyOptional = getStringProperty(messageContext, "target");
-        String saveTo = saveToPropertyOptional.orElse(Constant.saveToProperty);
-        int origin = originOptional.orElse(Constant.intMin);
-        int bound = boundOptional.orElse(Constant.intMax);
+        String saveTo = saveToPropertyOptional.orElse(Constant.SAVE_TO_PROPERTY);
+        int origin = originOptional.orElse(Constant.INT_MIN);
+        int bound = boundOptional.orElse(Constant.INT_MAX);
         int randomNumber;
         try {
             //Get the random number

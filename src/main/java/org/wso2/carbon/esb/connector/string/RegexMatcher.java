@@ -54,4 +54,3 @@ public class RegexMatcher extends AbstractConnector {
         return Pattern.matches(regex, input);
     }
 }
-

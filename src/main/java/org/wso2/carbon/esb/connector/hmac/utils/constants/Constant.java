@@ -20,7 +20,7 @@ package org.wso2.carbon.esb.connector.hmac.utils.constants;
 
 public class Constant {
 
-    public static final String saveSignResultTo = "sign";
-    public static final String saveVerifyResultTo = "verify";
-    public static final String payloadFromDefault = "Body";
+    public static final String SAVE_SIGN_RESULT_TO = "sign";
+    public static final String SAVE_VERIFY_RESULT_TO = "verify";
+    public static final String PAYLOAD_FROM_DEFAULT = "Body";
 }

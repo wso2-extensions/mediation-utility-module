@@ -39,7 +39,7 @@ public class Verify extends AbstractConnector {
 
     @Override
     public void connect(MessageContext messageContext) throws ConnectException {
-        //Reading properties from message context
+        //Reading properties from message context.
         Optional<String> payloadFromOptional = PropertyReader.getStringProperty(messageContext, "payload");
         Optional<String> customPayloadOptional = PropertyReader.getStringProperty(messageContext, "customPayload");
         Optional<String> customSignatureOptional = PropertyReader.getStringProperty(messageContext, "signature");
@@ -48,7 +48,7 @@ public class Verify extends AbstractConnector {
         String payload = null;
         //Reading payload from body or property
         if (payloadFromOptional.isPresent() && StringUtils.equalsIgnoreCase(payloadFromOptional.get(),
-                Constant.payloadFromDefault)) {
+                Constant.PAYLOAD_FROM_DEFAULT)) {
             try {
                 payload = PayloadReader.getPayload(messageContext);
             } catch (NoSuchContentTypeException e) {
@@ -61,7 +61,7 @@ public class Verify extends AbstractConnector {
         }
         String customSignature = customSignatureOptional.orElse("");
         String secret = secretOptional.orElse("");
-        String saveToProperty = saveToPropertyOptional.orElse(Constant.saveVerifyResultTo);
+        String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_VERIFY_RESULT_TO);
         try {
             HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, "algorithm", HMACAlgorithm.class
                     , HMACAlgorithm.HMACSHA1);
@@ -73,9 +73,7 @@ public class Verify extends AbstractConnector {
             } catch (NoSuchAlgorithmException e) {
                 log.error("Invalid Algorithm: ", e);
             } catch (InvalidKeyException e) {
-                log.error(e);
-            } catch (NullPointerException e) {
-                log.error("Secret is not provided", e);
+                log.error("Secret not provided",e);
             }
         } catch (InvalidParameterValueException e) {
             log.error(e);

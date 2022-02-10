@@ -23,6 +23,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.wso2.carbon.esb.connector.date.utils.Date;
+import org.wso2.carbon.esb.connector.date.utils.exception.IllegalDateFormatException;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -33,7 +34,7 @@ class GetDateTest {
 
 
     @Test
-    void test_getDate_legalDateFormat() {
+    void test_getDate_legalDateFormat() throws IllegalDateFormatException {
 
         String actualDate = Date.getDate("yyyy/MM/dd HH:mm:ss");
         Format formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -44,12 +45,12 @@ class GetDateTest {
     @Test
     void test_getDate_illegalDateFormat() {
 
-        Exception exception = Assertions.assertThrows(IllegalArgumentException.class, () -> Date.getDate("aff/dsf/asf"
+        Exception exception = Assertions.assertThrows(IllegalDateFormatException.class, () -> Date.getDate("aff/dsf/asf"
         ));
         String expectedMessage = "Illegal date format";
         Assertions.assertEquals(expectedMessage, exception.getMessage());
 
-        exception = Assertions.assertThrows(IllegalArgumentException.class, () -> Date.getDate("x@#"));
+        exception = Assertions.assertThrows(IllegalDateFormatException.class, () -> Date.getDate("x@#"));
         Assertions.assertEquals(expectedMessage, exception.getMessage());
     }
 }

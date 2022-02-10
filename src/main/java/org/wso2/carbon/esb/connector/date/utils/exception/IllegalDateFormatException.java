@@ -16,11 +16,14 @@
  *   under the License.
  */
 
-package org.wso2.carbon.esb.connector.math.utils.constants;
+package org.wso2.carbon.esb.connector.date.utils.exception;
 
-public class Constant {
+public class IllegalDateFormatException extends Exception {
+    public IllegalDateFormatException(String message){
+        super(message);
+    }
 
-    public static final String SAVE_TO_PROPERTY = "random";
-    public static final int INT_MAX = Integer.MAX_VALUE;
-    public static final int INT_MIN = 0;
+    public IllegalDateFormatException(String message,Throwable cause){
+        super(message,cause);
+    }
 }

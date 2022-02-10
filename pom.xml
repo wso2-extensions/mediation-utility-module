@@ -32,8 +32,13 @@
         <integration.base.version>1.0.6</integration.base.version>
         <product.ei.version>6.5.0</product.ei.version>
         <carbon.kernel.version>4.4.37</carbon.kernel.version>
-        <synapse.version>2.1.7-wso2v247-SNAPSHOT</synapse.version>
+        <synapse.version>2.1.7-wso2v250</synapse.version>
         <carbon.mediation.version>4.7.109</carbon.mediation.version>
+        <org.apache.maven.plugins.version>3.7.0</org.apache.maven.plugins.version>
+        <org.apache.commons.version>1.2</org.apache.commons.version>
+        <maven-surefire-plugin.version>2.12.4</maven-surefire-plugin.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <mockito.verion>4.2.0</mockito.verion>
         <junit.jupiter.version>5.8.2</junit.jupiter.version>
         <skip-tests>true</skip-tests>
@@ -73,11 +78,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>${org.apache.maven.plugins.version}</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -105,7 +110,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.12.4</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <inherited>false</inherited>
                 <configuration>
                     <argLine>-Xms512m -Xmx1024m -XX:MaxPermSize=128m</argLine>
@@ -170,7 +175,7 @@
                                 <artifactItem>
                                     <groupId>org.apache.commons</groupId>
                                     <artifactId>commons-email</artifactId>
-                                    <version>1.2</version>
+                                    <version>${org.apache.commons.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>target/connector/dependencies</outputDirectory>
