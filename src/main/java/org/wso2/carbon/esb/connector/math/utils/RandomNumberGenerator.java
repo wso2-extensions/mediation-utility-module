@@ -29,11 +29,11 @@ public class RandomNumberGenerator {
     }
 
     /**
-     * Generate a random integer number
+     * Generates a random integer number in a given range.
      *
-     * @param origin Lower bound for the random number
-     * @param bound  Upper bound for the random number
-     * @return random integer in the given range
+     * @param origin Lower bound for the random number.
+     * @param bound  Upper bound for the random number.
+     * @return random integer.
      */
     public static int generateRandomInteger(int origin, int bound) throws InvalidBoundException {
 

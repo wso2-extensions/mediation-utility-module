@@ -28,7 +28,7 @@ public class CaseTransformer {
     }
 
     /**
-     * Transform the string to lowercase
+     * Transform the string to lowercase.
      *
      * @param string String to transform.
      * @return String transformed string.

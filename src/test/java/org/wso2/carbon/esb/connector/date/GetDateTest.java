@@ -45,12 +45,8 @@ class GetDateTest {
     @Test
     void test_getDate_illegalDateFormat() {
 
-        Exception exception = Assertions.assertThrows(IllegalDateFormatException.class, () -> Date.getDate("aff/dsf/asf"
-        ));
-        String expectedMessage = "Illegal date format";
-        Assertions.assertEquals(expectedMessage, exception.getMessage());
+        Assertions.assertThrows(IllegalDateFormatException.class, () -> Date.getDate("aff/dsf/asf"));
 
-        exception = Assertions.assertThrows(IllegalDateFormatException.class, () -> Date.getDate("x@#"));
-        Assertions.assertEquals(expectedMessage, exception.getMessage());
+        Assertions.assertThrows(IllegalDateFormatException.class, () -> Date.getDate("x@#"));
     }
 }

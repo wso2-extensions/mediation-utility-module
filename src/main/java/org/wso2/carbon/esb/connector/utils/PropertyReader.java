@@ -32,7 +32,7 @@ public class PropertyReader {
     }
 
     /**
-     * Read a String parameter
+     * Reads a String parameter.
      *
      * @param mc           SimpleMessageContext.
      * @param parameterKey Key of the parameter.
@@ -48,7 +48,7 @@ public class PropertyReader {
     }
 
     /**
-     * Read an int parameter
+     * Reads an int parameter.
      *
      * @param mc           SimpleMessageContext.
      * @param parameterKey Key of the parameter.
@@ -67,7 +67,7 @@ public class PropertyReader {
     }
 
     /**
-     * Read a enum parameter
+     * Reads a enum parameter.
      *
      * @param mc           SimpleMessageContext.
      * @param parameterKey Key of the parameter.

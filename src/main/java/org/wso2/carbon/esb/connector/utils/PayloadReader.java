@@ -32,7 +32,7 @@ public class PayloadReader {
     private static final String payloadTypePropertyName = "messageType";
 
     /**
-     * get the payload from the body of message context
+     * Gets the payload from the body of message context.
      *
      * @param messageContext MessageContext.
      * @return String payload.
@@ -56,7 +56,7 @@ public class PayloadReader {
     }
 
     /**
-     * get the payload of Content-Type text/plain as a string
+     * Gets the payload of Content-Type text/plain as a string.
      *
      * @param messageContext MessageContext.
      * @return String payload.
@@ -77,7 +77,7 @@ public class PayloadReader {
     }
 
     /**
-     * get the payload of Content-Type application/xml as a string
+     * Gets the payload of Content-Type application/xml as a string.
      *
      * @param messageContext MessageContext.
      * @return String payload.
@@ -96,7 +96,7 @@ public class PayloadReader {
     }
 
     /**
-     * get the payload of Content-Type application/json as a string
+     * Gets the payload of Content-Type application/json as a string.
      *
      * @param messageContext MessageContext.
      * @return String payload.

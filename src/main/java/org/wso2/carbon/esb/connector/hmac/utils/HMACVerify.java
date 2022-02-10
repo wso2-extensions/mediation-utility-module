@@ -20,9 +20,6 @@ package org.wso2.carbon.esb.connector.hmac.utils;
 
 import org.apache.commons.lang.StringUtils;
 
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-
 public class HMACVerify {
 
     private HMACVerify() {

@@ -31,7 +31,6 @@ import org.wso2.carbon.esb.connector.utils.exception.InvalidParameterValueExcept
 import org.wso2.carbon.esb.connector.utils.exception.NoSuchContentTypeException;
 import org.wso2.carbon.esb.connector.utils.exception.PayloadNotFoundException;
 
-import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
@@ -70,10 +69,10 @@ public class Sign extends AbstractConnector {
             } catch (NoSuchAlgorithmException e) {
                 log.error("Invalid Algorithm: ", e);
             } catch (Exception e) {
-                log.error("Invalid secret provided",e);
+                log.error("Invalid secret provided", e);
             }
         } catch (InvalidParameterValueException e) {
-            log.error(e.getMessage(),e.getCause());
+            log.error(e.getMessage(), e.getCause());
         }
     }
 }

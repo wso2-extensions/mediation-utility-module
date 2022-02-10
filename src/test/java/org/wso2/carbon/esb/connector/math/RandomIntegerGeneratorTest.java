@@ -44,9 +44,7 @@ public class RandomIntegerGeneratorTest {
 
         int origin = 10;
         int bound = 9;
-        Exception exception = Assertions.assertThrows(IllegalArgumentException.class,
-                () -> RandomNumberGenerator.generateRandomInteger(origin, bound));
-        String expectedMessage = "Lower bound > Upper bound";
-        Assertions.assertEquals(expectedMessage, exception.getMessage());
+        Assertions.assertThrows(InvalidBoundException.class, () -> RandomNumberGenerator.generateRandomInteger(origin
+                , bound));
     }
 }

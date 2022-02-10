@@ -47,7 +47,7 @@ public class GetRandomNumber extends AbstractConnector {
             randomNumber = RandomNumberGenerator.generateRandomInteger(origin, bound);
             messageContext.setProperty(saveTo, randomNumber);
         } catch (InvalidBoundException e) {
-            log.error("Invalid bound provided.",e.getCause());
+            log.error("Invalid bound provided.", e.getCause());
         }
     }
 }

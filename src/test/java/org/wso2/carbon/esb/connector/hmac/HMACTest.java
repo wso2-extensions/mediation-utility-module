@@ -24,14 +24,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.wso2.carbon.esb.connector.hmac.utils.HMACGenerator;
 
-import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
 @ExtendWith(MockitoExtension.class)
 public class HMACTest {
 
     @Test
-    void test_hmacGenerator_validAlgorithm() throws NoSuchAlgorithmException, InvalidKeyException {
+    void test_hmacGenerator_validAlgorithm() throws Exception {
 
         String payload = "abc";
         String secret = "123";
@@ -49,11 +48,7 @@ public class HMACTest {
         String payload = "abc";
         String secret = "123";
         String algorithm = "Hmacsha";
-        Exception exception = Assertions.assertThrows(NoSuchAlgorithmException.class,
-                () -> HMACGenerator.generateSignature(payload, secret, algorithm));
-        String expectedMessage = "Invalid algorithm";
-
-        Assertions.assertEquals(expectedMessage, exception.getMessage());
+        Assertions.assertThrows(NoSuchAlgorithmException.class, () -> HMACGenerator.generateSignature(payload, secret
+                , algorithm));
     }
-
 }
