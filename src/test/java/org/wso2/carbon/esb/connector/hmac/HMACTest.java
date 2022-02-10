@@ -36,7 +36,6 @@ public class HMACTest {
         String secret = "123";
         String algorithm = "HmacSHA1";
         String actualHmac = HMACGenerator.generateSignature(payload, secret, algorithm);
-
         String expectedHmac = "540b0c53d4925837bd92b3f71abe7a9d70b676c4";
 
         Assertions.assertEquals(actualHmac, expectedHmac);

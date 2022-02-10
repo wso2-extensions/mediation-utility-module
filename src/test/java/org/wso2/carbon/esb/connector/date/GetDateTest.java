@@ -28,10 +28,8 @@ import org.wso2.carbon.esb.connector.date.utils.exception.IllegalDateFormatExcep
 import java.text.Format;
 import java.text.SimpleDateFormat;
 
-
 @ExtendWith(MockitoExtension.class)
 class GetDateTest {
-
 
     @Test
     void test_getDate_legalDateFormat() throws IllegalDateFormatException {
