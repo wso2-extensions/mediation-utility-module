@@ -29,9 +29,7 @@
 
     <properties>
         <connector.name>Utility</connector.name>
-        <integration.base.version>1.0.6</integration.base.version>
         <product.ei.version>6.5.0</product.ei.version>
-        <carbon.kernel.version>4.4.37</carbon.kernel.version>
         <synapse.version>2.1.7-wso2v250</synapse.version>
         <carbon.mediation.version>4.7.109</carbon.mediation.version>
         <org.apache.maven.plugins.version>3.7.0</org.apache.maven.plugins.version>
