@@ -23,6 +23,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.synapse.MessageContext;
 import org.wso2.carbon.connector.core.AbstractConnector;
 import org.wso2.carbon.connector.core.ConnectException;
+import org.wso2.carbon.esb.connector.hmac.utils.HMACUtils;
 import org.wso2.carbon.esb.connector.hmac.utils.HMACVerify;
 import org.wso2.carbon.esb.connector.hmac.utils.constants.Constant;
 import org.wso2.carbon.esb.connector.hmac.utils.constants.HMACAlgorithm;
@@ -46,20 +47,7 @@ public class Verify extends AbstractConnector {
         Optional<String> customSignatureOptional = PropertyReader.getStringProperty(messageContext, Constant.SIGNATURE);
         Optional<String> secretOptional = PropertyReader.getStringProperty(messageContext, Constant.SECRET);
         Optional<String> saveToPropertyOptional = PropertyReader.getStringProperty(messageContext, Constant.TARGET);
-        String payload = null;
-        //Reading payload from body or property
-        if (payloadFromOptional.isPresent() && StringUtils.equalsIgnoreCase(payloadFromOptional.get(),
-                Constant.PAYLOAD_FROM_DEFAULT)) {
-            try {
-                payload = PayloadReader.getPayload(messageContext);
-            } catch (NoSuchContentTypeException e) {
-                log.error("Invalid Content-Type: ", e);
-            } catch (PayloadNotFoundException e) {
-                log.error("No content in the message body", e);
-            }
-        } else {
-            payload = customPayloadOptional.orElse("");
-        }
+        String payload = HMACUtils.getPayload(messageContext, payloadFromOptional, customPayloadOptional);
         String customSignature = customSignatureOptional.orElse("");
         String secret = secretOptional.orElse("");
         String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_VERIFY_RESULT_TO);

@@ -24,6 +24,7 @@ import org.apache.synapse.MessageContext;
 import org.wso2.carbon.connector.core.AbstractConnector;
 import org.wso2.carbon.connector.core.ConnectException;
 import org.wso2.carbon.esb.connector.hmac.utils.HMACGenerator;
+import org.wso2.carbon.esb.connector.hmac.utils.HMACUtils;
 import org.wso2.carbon.esb.connector.hmac.utils.constants.Constant;
 import org.wso2.carbon.esb.connector.hmac.utils.constants.HMACAlgorithm;
 import org.wso2.carbon.esb.connector.utils.PayloadReader;
@@ -45,20 +46,7 @@ public class Sign extends AbstractConnector {
                 Constant.CUSTOM_PAYLOAD);
         Optional<String> secretOptional = PropertyReader.getStringProperty(messageContext, Constant.SECRET);
         Optional<String> saveToPropertyOptional = PropertyReader.getStringProperty(messageContext, Constant.TARGET);
-        String payload = null;
-        //Reading the payload from body or property.
-        if (payloadFromOptional.isPresent() && StringUtils.equalsIgnoreCase(payloadFromOptional.get(),
-                Constant.PAYLOAD_FROM_DEFAULT)) {
-            try {
-                payload = PayloadReader.getPayload(messageContext);
-            } catch (NoSuchContentTypeException e) {
-                log.error("Invalid Content-Type: ", e);
-            } catch (PayloadNotFoundException e) {
-                log.error("No content in the message body", e);
-            }
-        } else {
-            payload = customPayloadOptional.orElse("");
-        }
+        String payload = HMACUtils.getPayload(messageContext, payloadFromOptional, customPayloadOptional);
         String secret = secretOptional.orElse("");
         String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_SIGN_RESULT_TO);
         try {
