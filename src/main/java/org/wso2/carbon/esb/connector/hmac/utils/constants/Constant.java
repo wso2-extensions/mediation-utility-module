@@ -24,4 +24,10 @@ public class Constant {
     public static final String SAVE_SIGN_RESULT_TO = "sign";
     public static final String SAVE_VERIFY_RESULT_TO = "verify";
     public static final String PAYLOAD_FROM_DEFAULT = "Body";
+    public static final String PAYLOAD = "payload";
+    public static final String CUSTOM_PAYLOAD = "customPayload";
+    public static final String SECRET = "secret";
+    public static final String TARGET = "target";
+    public static final String ALGORITHM = "algorithm";
+    public static final String SIGNATURE = "signature";
 }

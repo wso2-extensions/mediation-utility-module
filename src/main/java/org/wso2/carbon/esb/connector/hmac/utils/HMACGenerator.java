@@ -62,7 +62,12 @@ public class HMACGenerator {
         }
     }
 
-    //Convert the byte array to string
+    /**
+     * Convert the byte array to string.
+     *
+     * @param bytes byte[].
+     * @return String.
+     */
     private static String toHexString(byte[] bytes) {
 
         Formatter formatter = new Formatter();
@@ -72,7 +77,12 @@ public class HMACGenerator {
         return formatter.toString();
     }
 
-    //Returns a MAC instance for the given algorithm
+    /**
+     * Returns a MAC instance for the given algorithm/
+     *
+     * @param algorithm String.
+     * @return Mac instance of the algorithm.
+     */
     private static Mac getMacInstance(String algorithm) throws NoSuchAlgorithmException {
 
         Mac macInstance = macInstancesMap.get(algorithm);

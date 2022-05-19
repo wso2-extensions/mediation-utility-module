@@ -40,11 +40,12 @@ public class Verify extends AbstractConnector {
     @Override
     public void connect(MessageContext messageContext) throws ConnectException {
         //Reading properties from message context.
-        Optional<String> payloadFromOptional = PropertyReader.getStringProperty(messageContext, "payload");
-        Optional<String> customPayloadOptional = PropertyReader.getStringProperty(messageContext, "customPayload");
-        Optional<String> customSignatureOptional = PropertyReader.getStringProperty(messageContext, "signature");
-        Optional<String> secretOptional = PropertyReader.getStringProperty(messageContext, "secret");
-        Optional<String> saveToPropertyOptional = PropertyReader.getStringProperty(messageContext, "target");
+        Optional<String> payloadFromOptional = PropertyReader.getStringProperty(messageContext, Constant.PAYLOAD);
+        Optional<String> customPayloadOptional = PropertyReader.getStringProperty(messageContext,
+                Constant.CUSTOM_PAYLOAD);
+        Optional<String> customSignatureOptional = PropertyReader.getStringProperty(messageContext, Constant.SIGNATURE);
+        Optional<String> secretOptional = PropertyReader.getStringProperty(messageContext, Constant.SECRET);
+        Optional<String> saveToPropertyOptional = PropertyReader.getStringProperty(messageContext, Constant.TARGET);
         String payload = null;
         //Reading payload from body or property
         if (payloadFromOptional.isPresent() && StringUtils.equalsIgnoreCase(payloadFromOptional.get(),
@@ -63,8 +64,8 @@ public class Verify extends AbstractConnector {
         String secret = secretOptional.orElse("");
         String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_VERIFY_RESULT_TO);
         try {
-            HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, "algorithm", HMACAlgorithm.class
-                    , HMACAlgorithm.HMACSHA1);
+            HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, Constant.ALGORITHM,
+                    HMACAlgorithm.class, HMACAlgorithm.HMACSHA1);
             boolean verifyResult;
             try {
                 //Verify the payload using the signature

@@ -36,8 +36,8 @@ public class GetDate extends AbstractConnector {
     public void connect(MessageContext messageContext) throws ConnectException {
 
         //reading properties from message context
-        Optional<String> dateFormatOptional = getStringProperty(messageContext, "format");
-        Optional<String> saveToPropertyOptional = getStringProperty(messageContext, "target");
+        Optional<String> dateFormatOptional = getStringProperty(messageContext,Constant.FORMAT);
+        Optional<String> saveToPropertyOptional = getStringProperty(messageContext,Constant.TARGET);
         String dateFormat = dateFormatOptional.orElse(Constant.DATE_FORMAT);
         String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_TO_PROPERTY);
         try {

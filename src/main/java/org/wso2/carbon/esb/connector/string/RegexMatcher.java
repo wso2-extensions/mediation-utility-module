@@ -35,9 +35,9 @@ public class RegexMatcher extends AbstractConnector {
     @Override
     public void connect(MessageContext messageContext) throws ConnectException {
 
-        Optional<String> inputOptional = getStringProperty(messageContext, "string");
-        Optional<String> regexOptional = getStringProperty(messageContext, "regex");
-        Optional<String> saveToPropertyOptional = getStringProperty(messageContext, "target");
+        Optional<String> inputOptional = getStringProperty(messageContext, Constant.INPUT_STRING);
+        Optional<String> regexOptional = getStringProperty(messageContext, Constant.REGEX);
+        Optional<String> saveToPropertyOptional = getStringProperty(messageContext, Constant.TARGET);
         String input = inputOptional.orElse("");
         String regex = regexOptional.orElse("");
         String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_TO_PROPERTY_REGEX_MATCHING);

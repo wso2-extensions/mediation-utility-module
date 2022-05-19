@@ -25,4 +25,8 @@ public class Constant {
     public static final String SAVE_TO_PROPERTY_LENGTH = "length";
     public static final String SAVE_TO_PROPERTY_UUID = "uuid";
     public static final String SAVE_TO_PROPERTY_REGEX_MATCHING = "match";
+
+    public static final String INPUT_STRING="string";
+    public static final String TARGET="target";
+    public static final String REGEX="regex";
 }

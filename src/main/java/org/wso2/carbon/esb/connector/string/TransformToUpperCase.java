@@ -34,8 +34,8 @@ public class TransformToUpperCase extends AbstractConnector {
     @Override
     public void connect(MessageContext messageContext) throws ConnectException {
 
-        Optional<String> stringOptional = getStringProperty(messageContext, "string");
-        Optional<String> saveToPropertyOptional = getStringProperty(messageContext, "target");
+        Optional<String> stringOptional = getStringProperty(messageContext, Constant.INPUT_STRING);
+        Optional<String> saveToPropertyOptional = getStringProperty(messageContext, Constant.TARGET);
         String string = stringOptional.orElse("");
         String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_TO_PROPERTY_CASE_CHANGER);
         //transform the string to uppercase

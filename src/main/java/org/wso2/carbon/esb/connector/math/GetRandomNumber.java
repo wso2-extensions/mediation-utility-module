@@ -36,9 +36,9 @@ public class GetRandomNumber extends AbstractConnector {
     @Override
     public void connect(MessageContext messageContext) throws ConnectException {
         //Read the properties form message context
-        Optional<Integer> originOptional = getIntProperty(messageContext, "lowerBound");
-        Optional<Integer> boundOptional = getIntProperty(messageContext, "upperBound");
-        Optional<String> saveToPropertyOptional = getStringProperty(messageContext, "target");
+        Optional<Integer> originOptional = getIntProperty(messageContext, Constant.LOWER_BOUND);
+        Optional<Integer> boundOptional = getIntProperty(messageContext, Constant.UPPER_BOUND);
+        Optional<String> saveToPropertyOptional = getStringProperty(messageContext, Constant.TARGET);
         String saveTo = saveToPropertyOptional.orElse(Constant.SAVE_TO_PROPERTY);
         int origin = originOptional.orElse(Constant.INT_MIN);
         int bound = boundOptional.orElse(Constant.INT_MAX);

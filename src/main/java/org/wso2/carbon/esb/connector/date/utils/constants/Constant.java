@@ -23,4 +23,6 @@ public class Constant {
 
     public static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
     public static final String SAVE_TO_PROPERTY = "date";
+    public static final String FORMAT="format";
+    public static final String TARGET="target";
 }
