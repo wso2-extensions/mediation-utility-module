@@ -46,7 +46,14 @@ public class Sign extends AbstractConnector {
                 Constant.CUSTOM_PAYLOAD);
         Optional<String> secretOptional = PropertyReader.getStringProperty(messageContext, Constant.SECRET);
         Optional<String> saveToPropertyOptional = PropertyReader.getStringProperty(messageContext, Constant.TARGET);
-        String payload = HMACUtils.getPayload(messageContext, payloadFromOptional, customPayloadOptional);
+        String payload = null;
+        try {
+            payload = HMACUtils.getPayload(messageContext, payloadFromOptional, customPayloadOptional);
+        } catch (NoSuchContentTypeException e) {
+            log.error("Invalid Content-Type: ", e);
+        } catch (PayloadNotFoundException e) {
+            log.error("No content in the message body", e);
+        }
         String secret = secretOptional.orElse("");
         String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_SIGN_RESULT_TO);
         try {

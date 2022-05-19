@@ -47,7 +47,14 @@ public class Verify extends AbstractConnector {
         Optional<String> customSignatureOptional = PropertyReader.getStringProperty(messageContext, Constant.SIGNATURE);
         Optional<String> secretOptional = PropertyReader.getStringProperty(messageContext, Constant.SECRET);
         Optional<String> saveToPropertyOptional = PropertyReader.getStringProperty(messageContext, Constant.TARGET);
-        String payload = HMACUtils.getPayload(messageContext, payloadFromOptional, customPayloadOptional);
+        String payload = null;
+        try {
+            payload = HMACUtils.getPayload(messageContext, payloadFromOptional, customPayloadOptional);
+        } catch (NoSuchContentTypeException e) {
+            log.error("Invalid Content-Type: ", e);
+        } catch (PayloadNotFoundException e) {
+            log.error("No content in the message body", e);
+        }
         String customSignature = customSignatureOptional.orElse("");
         String secret = secretOptional.orElse("");
         String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_VERIFY_RESULT_TO);

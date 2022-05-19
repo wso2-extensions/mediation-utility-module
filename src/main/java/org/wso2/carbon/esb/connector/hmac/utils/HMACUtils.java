@@ -35,7 +35,7 @@ public class HMACUtils {
     protected static Log log = LogFactory.getLog(HMACUtils.class);
 
     public static String getPayload(MessageContext messageContext, Optional<String> payloadFromOptional,
-                                    Optional<String> customPayloadOptional) {
+                                    Optional<String> customPayloadOptional) throws NoSuchContentTypeException, PayloadNotFoundException {
 
         String payload = "";
         if (payloadFromOptional.isPresent() && StringUtils.equalsIgnoreCase(payloadFromOptional.get(),
@@ -43,9 +43,9 @@ public class HMACUtils {
             try {
                 payload = PayloadReader.getPayload(messageContext);
             } catch (NoSuchContentTypeException e) {
-                log.error("Invalid Content-Type: ", e);
+                throw e;
             } catch (PayloadNotFoundException e) {
-                log.error("No content in the message body", e);
+                throw e;
             }
         } else {
             payload = customPayloadOptional.orElse("");
