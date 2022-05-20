@@ -18,13 +18,13 @@
   -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="string.RegexMatcher">
     <parameter name="regex"/>
-    <parameter name="string"/>
+    <parameter name="inputString"/>
     <parameter name="target"/>
 
     <sequence>
         <log level="full">
             <property name="regex" expression="$func:regex"/>
-            <property name="string" expression="$func:string"/>
+            <property name="inputString" expression="$func:inputString"/>
             <property name="target" expression="$func:target"/>
         </log>
         <class name="org.wso2.carbon.esb.connector.string.RegexMatcher"/>

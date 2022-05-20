@@ -17,12 +17,12 @@
   ~
   -->
 <template xmlns="http://ws.apache.org/ns/synapse" name="string.Length">
-    <parameter name="string"/>
+    <parameter name="inputString"/>
     <parameter name="target"/>
 
     <sequence>
         <log level="full">
-            <property name="string" expression="$func:string"/>
+            <property name="inputString" expression="$func:inputString"/>
             <property name="target" expression="$func:target"/>
         </log>
         <class name="org.wso2.carbon.esb.connector.string.Length"/>
