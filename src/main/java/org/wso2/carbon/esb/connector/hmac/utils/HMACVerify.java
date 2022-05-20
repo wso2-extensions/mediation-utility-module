@@ -20,6 +20,10 @@
 package org.wso2.carbon.esb.connector.hmac.utils;
 
 import org.apache.commons.lang.StringUtils;
+import org.wso2.carbon.esb.connector.hmac.utils.exception.InvalidSecretException;
+
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 public class HMACVerify {
 
@@ -35,7 +39,7 @@ public class HMACVerify {
      * @param algorithm Signing algorithm.
      * @return boolean value of verified or not.
      */
-    public static boolean verify(String payload, String secret, String algorithm, String signature) throws Exception {
+    public static boolean verify(String payload, String secret, String algorithm, String signature) throws NoSuchAlgorithmException, InvalidSecretException, InvalidKeyException {
         //generate a signature for the payload using the algorithm and secret provided.
         String payloadSignature = HMACGenerator.generateSignature(payload, secret, algorithm);
         return StringUtils.equals(signature, payloadSignature);

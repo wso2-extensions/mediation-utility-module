@@ -20,6 +20,8 @@
 package org.wso2.carbon.esb.connector.hmac.utils;
 
 import org.apache.commons.lang.StringUtils;
+import org.wso2.carbon.esb.connector.hmac.utils.exception.InvalidSecretException;
+import org.wso2.carbon.esb.connector.utils.exception.InvalidParameterValueException;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -45,12 +47,12 @@ public class HMACGenerator {
      * @param algorithm Signing algorithm.
      * @return Signature for the payload.
      */
-    public static String generateSignature(String payload, String secret, String algorithm) throws Exception {
+    public static String generateSignature(String payload, String secret, String algorithm) throws InvalidSecretException, NoSuchAlgorithmException, InvalidKeyException {
 
         try {
             Mac mac = getMacInstance(algorithm);
             if (StringUtils.isBlank(secret) || StringUtils.isEmpty(secret)) {
-                throw new Exception();
+                throw new InvalidSecretException();
             }
             final SecretKeySpec signingKey = new SecretKeySpec(secret.getBytes(), algorithm);
             mac.init(signingKey);
@@ -59,6 +61,8 @@ public class HMACGenerator {
             throw new NoSuchAlgorithmException(e);
         } catch (InvalidKeyException e) {
             throw new InvalidKeyException(e);
+        } catch (InvalidSecretException e) {
+            throw new InvalidSecretException(e);
         }
     }
 

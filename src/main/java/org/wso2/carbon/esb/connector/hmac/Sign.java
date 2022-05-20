@@ -27,12 +27,14 @@ import org.wso2.carbon.esb.connector.hmac.utils.HMACGenerator;
 import org.wso2.carbon.esb.connector.hmac.utils.HMACUtils;
 import org.wso2.carbon.esb.connector.hmac.utils.constants.Constant;
 import org.wso2.carbon.esb.connector.hmac.utils.constants.HMACAlgorithm;
+import org.wso2.carbon.esb.connector.hmac.utils.exception.InvalidSecretException;
 import org.wso2.carbon.esb.connector.utils.PayloadReader;
 import org.wso2.carbon.esb.connector.utils.PropertyReader;
 import org.wso2.carbon.esb.connector.utils.exception.InvalidParameterValueException;
 import org.wso2.carbon.esb.connector.utils.exception.NoSuchContentTypeException;
 import org.wso2.carbon.esb.connector.utils.exception.PayloadNotFoundException;
 
+import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
@@ -51,25 +53,21 @@ public class Sign extends AbstractConnector {
             payload = HMACUtils.getPayload(messageContext, payloadFromOptional, customPayloadOptional);
             String secret = secretOptional.orElse("");
             String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_SIGN_RESULT_TO);
-            try {
-                HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, Constant.ALGORITHM,
-                        HMACAlgorithm.class, HMACAlgorithm.HMACSHA1);
-                try {
-                    //Generate signature for the payload
-                    String sign = HMACGenerator.generateSignature(payload, secret, algorithm.toString());
-                    messageContext.setProperty(saveToProperty, sign);
-                } catch (NoSuchAlgorithmException e) {
-                    log.error("Invalid Algorithm: ", e);
-                } catch (Exception e) {
-                    log.error("Invalid secret provided", e);
-                }
-            } catch (InvalidParameterValueException e) {
-                log.error(e.getMessage(), e.getCause());
-            }
+            HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, Constant.ALGORITHM,
+                    HMACAlgorithm.class, HMACAlgorithm.HMACSHA1);
+            //Generate signature for the payload
+            String sign = HMACGenerator.generateSignature(payload, secret, algorithm.toString());
+            messageContext.setProperty(saveToProperty, sign);
+        } catch (InvalidParameterValueException e) {
+            log.error("Parameter value is invalid", e);
         } catch (NoSuchContentTypeException e) {
             log.error("Invalid Content-Type: ", e);
         } catch (PayloadNotFoundException e) {
             log.error("No content in the message body", e);
+        } catch (NoSuchAlgorithmException e) {
+            log.error("Invalid Algorithm: ", e);
+        } catch (InvalidSecretException | InvalidKeyException e) {
+            log.error("Invalid secret provided", e);
         }
     }
 }

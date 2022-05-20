@@ -27,12 +27,14 @@ import org.wso2.carbon.esb.connector.hmac.utils.HMACUtils;
 import org.wso2.carbon.esb.connector.hmac.utils.HMACVerify;
 import org.wso2.carbon.esb.connector.hmac.utils.constants.Constant;
 import org.wso2.carbon.esb.connector.hmac.utils.constants.HMACAlgorithm;
+import org.wso2.carbon.esb.connector.hmac.utils.exception.InvalidSecretException;
 import org.wso2.carbon.esb.connector.utils.PayloadReader;
 import org.wso2.carbon.esb.connector.utils.PropertyReader;
 import org.wso2.carbon.esb.connector.utils.exception.InvalidParameterValueException;
 import org.wso2.carbon.esb.connector.utils.exception.NoSuchContentTypeException;
 import org.wso2.carbon.esb.connector.utils.exception.PayloadNotFoundException;
 
+import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
@@ -53,26 +55,22 @@ public class Verify extends AbstractConnector {
             String customSignature = customSignatureOptional.orElse("");
             String secret = secretOptional.orElse("");
             String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_VERIFY_RESULT_TO);
-            try {
-                HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, Constant.ALGORITHM,
-                        HMACAlgorithm.class, HMACAlgorithm.HMACSHA1);
-                boolean verifyResult;
-                try {
-                    //Verify the payload using the signature
-                    verifyResult = HMACVerify.verify(payload, secret, algorithm.toString(), customSignature);
-                    messageContext.setProperty(saveToProperty, verifyResult);
-                } catch (NoSuchAlgorithmException e) {
-                    log.error("Invalid Algorithm: ", e);
-                } catch (Exception e) {
-                    log.error("Invalid secret provided", e);
-                }
-            } catch (InvalidParameterValueException e) {
-                log.error(e.getMessage(), e.getCause());
-            }
+            HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, Constant.ALGORITHM,
+                    HMACAlgorithm.class, HMACAlgorithm.HMACSHA1);
+            boolean verifyResult;
+            //Verify the payload using the signature
+            verifyResult = HMACVerify.verify(payload, secret, algorithm.toString(), customSignature);
+            messageContext.setProperty(saveToProperty, verifyResult);
         } catch (NoSuchContentTypeException e) {
             log.error("Invalid Content-Type: ", e);
         } catch (PayloadNotFoundException e) {
             log.error("No content in the message body", e);
+        } catch (InvalidParameterValueException e) {
+            log.error(e.getMessage(), e.getCause());
+        } catch (NoSuchAlgorithmException e) {
+            log.error("Invalid Algorithm: ", e);
+        } catch (InvalidSecretException | InvalidKeyException e) {
+            log.error("Invalid secret provided", e);
         }
     }
 }
