@@ -1,0 +1,90 @@
+{
+  "connectorName": "Utility",
+  "operationName": "signature.Verify",
+  "title": "",
+  "help": "",
+  "elements": [
+    {
+      "type": "attribute",
+      "value": {
+        "name": "payload",
+        "displayName": "Payload",
+        "inputType": "comboOrExpression",
+        "defaultValue": "Body",
+        "required": "false",
+        "comboValues": [
+          "Body",
+          "Custom"
+        ],
+        "helpTip": ""
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "customPayload",
+        "displayName": "Custom Payload",
+        "inputType": "stringOrExpression",
+        "defaultValue": "",
+        "required": "false",
+        "helpTip": "Connection to be used",
+        "enableCondition": [
+          {
+            "payload": "Custom"
+          }
+        ]
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "signature",
+        "displayName": "Signature",
+        "inputType": "stringOrExpression",
+        "defaultValue": "",
+        "required": "false",
+        "helpTip": "Connection to be used"
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "secret",
+        "displayName": "Secret",
+        "inputType": "stringOrExpression",
+        "defaultValue": "",
+        "required": "true",
+        "helpTip": "Connection to be used"
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "algorithm",
+        "displayName": "Algorithm",
+        "inputType": "comboOrExpression",
+        "defaultValue": "HMACSHA1",
+        "required": "false",
+        "comboValues": [
+          "HMACSHA1",
+          "HMACSHA256",
+          "HMACSHA384",
+          "HMACSHA512",
+          "HMACMD5"
+        ],
+        "helpTip": ""
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "target",
+        "displayName": "Target Property",
+        "inputType": "stringOrExpression",
+        "defaultValue": "verify",
+        "required": "true",
+        "helpTip": "Enter the property name. (default:'verify')"
+      }
+    }
+  ]
+}

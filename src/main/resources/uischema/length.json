@@ -1,0 +1,30 @@
+{
+  "connectorName": "Utility",
+  "operationName": "string.Length",
+  "title": "Calculate the length of a string",
+  "help": "",
+  "elements": [
+    {
+      "type": "attribute",
+      "value": {
+        "name": "inputString",
+        "displayName": "Input String",
+        "inputType": "string",
+        "defaultValue": "",
+        "required": "false",
+        "helpTip": "Connection to be used"
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "target",
+        "displayName": "Target Property",
+        "inputType": "string",
+        "defaultValue": "length",
+        "required": "true",
+        "helpTip": "Enter the property name. (default:'length')"
+      }
+    }
+  ]
+}

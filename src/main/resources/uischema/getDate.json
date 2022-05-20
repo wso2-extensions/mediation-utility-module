@@ -1,0 +1,30 @@
+{
+  "connectorName": "Utility",
+  "operationName": "date.GetDate",
+  "title": "Get the current date",
+  "help": "",
+  "elements": [
+    {
+      "type": "attribute",
+      "value": {
+        "name": "format",
+        "displayName": "Date Format",
+        "inputType": "string",
+        "defaultValue": "yyyy-MM-dd HH:mmm:ss",
+        "required": "false",
+        "helpTip": "Enter the date format. (default: yyyy-MM-dd HH:mm:ss)"
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "target",
+        "displayName": "Target Property",
+        "inputType": "stringOrExpression",
+        "defaultValue": "date",
+        "required": "true",
+        "helpTip": "Enter the property name. (default:'date')"
+      }
+    }
+  ]
+}

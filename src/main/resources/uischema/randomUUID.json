@@ -1,0 +1,19 @@
+{
+  "connectorName": "Utility",
+  "operationName": "string.UUID",
+  "title": "Generate a random UUID",
+  "help": "",
+  "elements": [
+    {
+      "type": "attribute",
+      "value": {
+        "name": "target",
+        "displayName": "Target Property",
+        "inputType": "string",
+        "defaultValue": "uuid",
+        "required": "true",
+        "helpTip": "Enter the property name. (default:'uuid')"
+      }
+    }
+  ]
+}

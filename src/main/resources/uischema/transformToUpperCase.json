@@ -1,0 +1,30 @@
+{
+  "connectorName": "Utility",
+  "operationName": "string.UpperCase",
+  "title": "Transform to uppercase",
+  "help": "",
+  "elements": [
+    {
+      "type": "attribute",
+      "value": {
+        "name": "inputString",
+        "displayName": "Input String",
+        "inputType": "string",
+        "defaultValue": "",
+        "required": "true",
+        "helpTip": "Connection to be used"
+      }
+    },
+    {
+      "type": "attribute",
+      "value": {
+        "name": "target",
+        "displayName": "Target Property",
+        "inputType": "string",
+        "defaultValue": "upper",
+        "required": "true",
+        "helpTip": "Enter the property name. (default:'upper')"
+      }
+    }
+  ]
+}
