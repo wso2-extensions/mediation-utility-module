@@ -50,29 +50,29 @@ public class Verify extends AbstractConnector {
         String payload = null;
         try {
             payload = HMACUtils.getPayload(messageContext, payloadFromOptional, customPayloadOptional);
+            String customSignature = customSignatureOptional.orElse("");
+            String secret = secretOptional.orElse("");
+            String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_VERIFY_RESULT_TO);
+            try {
+                HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, Constant.ALGORITHM,
+                        HMACAlgorithm.class, HMACAlgorithm.HMACSHA1);
+                boolean verifyResult;
+                try {
+                    //Verify the payload using the signature
+                    verifyResult = HMACVerify.verify(payload, secret, algorithm.toString(), customSignature);
+                    messageContext.setProperty(saveToProperty, verifyResult);
+                } catch (NoSuchAlgorithmException e) {
+                    log.error("Invalid Algorithm: ", e);
+                } catch (Exception e) {
+                    log.error("Invalid secret provided", e);
+                }
+            } catch (InvalidParameterValueException e) {
+                log.error(e.getMessage(), e.getCause());
+            }
         } catch (NoSuchContentTypeException e) {
             log.error("Invalid Content-Type: ", e);
         } catch (PayloadNotFoundException e) {
             log.error("No content in the message body", e);
-        }
-        String customSignature = customSignatureOptional.orElse("");
-        String secret = secretOptional.orElse("");
-        String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_VERIFY_RESULT_TO);
-        try {
-            HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, Constant.ALGORITHM,
-                    HMACAlgorithm.class, HMACAlgorithm.HMACSHA1);
-            boolean verifyResult;
-            try {
-                //Verify the payload using the signature
-                verifyResult = HMACVerify.verify(payload, secret, algorithm.toString(), customSignature);
-                messageContext.setProperty(saveToProperty, verifyResult);
-            } catch (NoSuchAlgorithmException e) {
-                log.error("Invalid Algorithm: ", e);
-            } catch (Exception e) {
-                log.error("Invalid secret provided", e);
-            }
-        } catch (InvalidParameterValueException e) {
-            log.error(e.getMessage(), e.getCause());
         }
     }
 }

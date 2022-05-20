@@ -49,27 +49,27 @@ public class Sign extends AbstractConnector {
         String payload = null;
         try {
             payload = HMACUtils.getPayload(messageContext, payloadFromOptional, customPayloadOptional);
+            String secret = secretOptional.orElse("");
+            String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_SIGN_RESULT_TO);
+            try {
+                HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, Constant.ALGORITHM,
+                        HMACAlgorithm.class, HMACAlgorithm.HMACSHA1);
+                try {
+                    //Generate signature for the payload
+                    String sign = HMACGenerator.generateSignature(payload, secret, algorithm.toString());
+                    messageContext.setProperty(saveToProperty, sign);
+                } catch (NoSuchAlgorithmException e) {
+                    log.error("Invalid Algorithm: ", e);
+                } catch (Exception e) {
+                    log.error("Invalid secret provided", e);
+                }
+            } catch (InvalidParameterValueException e) {
+                log.error(e.getMessage(), e.getCause());
+            }
         } catch (NoSuchContentTypeException e) {
             log.error("Invalid Content-Type: ", e);
         } catch (PayloadNotFoundException e) {
             log.error("No content in the message body", e);
-        }
-        String secret = secretOptional.orElse("");
-        String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_SIGN_RESULT_TO);
-        try {
-            HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, Constant.ALGORITHM,
-                    HMACAlgorithm.class, HMACAlgorithm.HMACSHA1);
-            try {
-                //Generate signature for the payload
-                String sign = HMACGenerator.generateSignature(payload, secret, algorithm.toString());
-                messageContext.setProperty(saveToProperty, sign);
-            } catch (NoSuchAlgorithmException e) {
-                log.error("Invalid Algorithm: ", e);
-            } catch (Exception e) {
-                log.error("Invalid secret provided", e);
-            }
-        } catch (InvalidParameterValueException e) {
-            log.error(e.getMessage(), e.getCause());
         }
     }
 }
