@@ -23,13 +23,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2.carbon.esb.connector</groupId>
     <artifactId>mediation-utility-module</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
     <name>WSO2 Carbon - Utility Connector</name>
     <url>http://wso2.org</url>
 
     <properties>
-        <connector.name>Utility</connector.name>
+        <connector.name>utility</connector.name>
         <product.ei.version>6.5.0</product.ei.version>
         <synapse.version>2.1.7-wso2v250</synapse.version>
         <carbon.mediation.version>4.7.109</carbon.mediation.version>
