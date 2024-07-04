@@ -5,6 +5,17 @@
     "documentationUrl": "https://apim.docs.wso2.com/en/latest/reference/connectors/utility-module/utility-module-overview/",
     "description": "Utility connector allows you to perform utility functions on string, date, math, and signature. It has utility functions such as manipulating strings, performing math functions, working with dates, and generating and verifying payload signatures.",
     "status": "Active",
-    "labels": [],
-    "releases": []
+    "labels": [
+        "utility"
+    ],
+    "releases": [
+        {
+            "tagName": "v1.0.1",
+            "products": [
+                "MI 4.1.0",
+                "MI 4.0.0"
+            ],
+            "isHidden": false
+        }
+    ]
 }
