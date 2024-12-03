@@ -8,7 +8,7 @@
     "mavenArtifactId": "mediation-utility-module",
     "description": "Utility connector allows you to perform utility functions on string, date, math, and signature. It has utility functions such as manipulating strings, performing math functions, working with dates, and generating and verifying payload signatures.",
     "status": "Active",
-    "connectorRank": 12,
+    "rank": 12,
     "type": "Connector",
     "labels": [
         "module"
