@@ -1,10 +1,15 @@
 {
     "name": "Utility Module",
     "owner": "WSO2",
+    "product": "MI",
     "category": "Developer Tools",
     "documentationUrl": "https://mi.docs.wso2.com/en/latest/reference/connectors/utility-module/utility-module-overview/",
+    "mavenGroupId": "org.wso2.integration.module",
+    "mavenArtifactId": "mi-module-utility",
     "description": "Utility connector allows you to perform utility functions on string, date, math, and signature. It has utility functions such as manipulating strings, performing math functions, working with dates, and generating and verifying payload signatures.",
     "status": "Active",
+    "rank": 12,
+    "type": "Connector",
     "labels": [
         "module"
     ],
@@ -17,6 +22,54 @@
                 "MI 4.1.0",
                 "MI 4.0.0"
             ],
+            "operations": [
+                {
+                    "name":"date.GetDate",
+                    "description":"Wso2 connector method",
+                    "isHidden":false
+                },
+                {
+                    "name":"math.GetRandomInt",
+                    "description":"Wso2 connector method",
+                    "isHidden":false
+                },
+                {
+                    "name":"string.LowerCase",
+                    "description":"Wso2 connector method",
+                    "isHidden":false
+                },
+                {
+                    "name":"string.UpperCase",
+                    "description":"Wso2 connector method",
+                    "isHidden":false
+                },
+                {
+                    "name":"string.Length",
+                    "description":"Wso2 connector method",
+                    "isHidden":false
+                },
+                {
+                    "name":"string.UUID",
+                    "description":"Wso2 connector method",
+                    "isHidden":false
+                },
+                {
+                    "name":"string.RegexMatcher",
+                    "description":"Wso2 connector method",
+                    "isHidden":false
+                },
+                {
+                    "name":"signature.Generate",
+                    "description":"Wso2 connector method",
+                    "isHidden":false
+                },
+                {
+                    "name":"signature.Verify",
+                    "description":"Wso2 connector method",
+                    "isHidden":false
+                }
+            ],
+            "connections": [],
             "isHidden": false
         }
     ]
