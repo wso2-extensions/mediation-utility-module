@@ -25,6 +25,7 @@
         <dependency component="hmac"/>
         <description>WSO2 Utility Connector</description>
     </component>
+    <displayName>Utility</displayName>
     <icon>icon/icon-small.gif</icon>
     <type>module</type>
 </connector>
