@@ -17,6 +17,7 @@
         {
             "tagName": "v1.0.2",
             "products": [
+                "MI 4.4.0",
                 "MI 4.3.0",
                 "MI 4.2.0",
                 "MI 4.1.0",
@@ -24,49 +25,49 @@
             ],
             "operations": [
                 {
-                    "name":"date.GetDate",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "date.GetDate",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"math.GetRandomInt",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "math.GetRandomInt",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"string.LowerCase",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "string.LowerCase",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"string.UpperCase",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "string.UpperCase",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"string.Length",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "string.Length",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"string.UUID",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "string.UUID",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"string.RegexMatcher",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "string.RegexMatcher",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"signature.Generate",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "signature.Generate",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"signature.Verify",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "signature.Verify",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 }
             ],
             "connections": [],
@@ -82,49 +83,49 @@
             ],
             "operations": [
                 {
-                    "name":"date.GetDate",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "date.GetDate",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"math.GetRandomInt",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "math.GetRandomInt",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"string.LowerCase",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "string.LowerCase",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"string.UpperCase",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "string.UpperCase",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"string.Length",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "string.Length",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"string.UUID",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "string.UUID",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"string.RegexMatcher",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "string.RegexMatcher",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"signature.Generate",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "signature.Generate",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 },
                 {
-                    "name":"signature.Verify",
-                    "description":"Wso2 connector method",
-                    "isHidden":false
+                    "name": "signature.Verify",
+                    "description": "Wso2 connector method",
+                    "isHidden": false
                 }
             ],
             "connections": [],
