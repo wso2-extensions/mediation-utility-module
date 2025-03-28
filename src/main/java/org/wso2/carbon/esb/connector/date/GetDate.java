@@ -36,13 +36,13 @@ public class GetDate extends AbstractConnector {
     public void connect(MessageContext messageContext) throws ConnectException {
 
         //reading properties from message context
-        Optional<String> dateFormatOptional = getStringProperty(messageContext,Constant.FORMAT);
-        Optional<String> saveToPropertyOptional = getStringProperty(messageContext,Constant.TARGET);
+        Optional<String> dateFormatOptional = getStringProperty(messageContext, Constant.FORMAT);
+        Optional<String> saveToVariableOptional = getStringProperty(messageContext, Constant.TARGET);
         String dateFormat = dateFormatOptional.orElse(Constant.DATE_FORMAT);
-        String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_TO_PROPERTY);
+        String saveToVariable = saveToVariableOptional.orElse(Constant.SAVE_TO_PROPERTY);
         try {
             String date = Date.getDate(dateFormat);
-            messageContext.setProperty(saveToProperty, date);
+            messageContext.setVariable(saveToVariable, date);
         } catch (IllegalDateFormatException exception) {
             log.error("Invalid date format", exception.getCause());
         }

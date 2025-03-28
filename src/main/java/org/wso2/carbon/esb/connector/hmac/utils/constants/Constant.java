@@ -27,7 +27,7 @@ public class Constant {
     public static final String PAYLOAD = "payload";
     public static final String CUSTOM_PAYLOAD = "customPayload";
     public static final String SECRET = "secret";
-    public static final String TARGET = "target";
+    public static final String TARGET = "targetVariable";
     public static final String ALGORITHM = "algorithm";
     public static final String SIGNATURE = "signature";
 }

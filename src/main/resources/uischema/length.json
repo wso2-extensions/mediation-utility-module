@@ -1,29 +1,45 @@
 {
   "connectorName": "Utility",
-  "operationName": "string.Length",
-  "title": "Calculate the length of a string",
-  "help": "",
+  "operationName": "length",
+  "title": "Get String Length",
+  "help": "Calculates the length of a given string input",
   "elements": [
     {
-      "type": "attribute",
+      "type": "attributeGroup",
       "value": {
-        "name": "inputString",
-        "displayName": "Input String",
-        "inputType": "string",
-        "defaultValue": "",
-        "required": "false",
-        "helpTip": "Connection to be used"
+        "groupName": "Input",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "inputString",
+              "displayName": "Input String",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "The string whose length will be calculated"
+            }
+          }
+        ]
       }
     },
     {
-      "type": "attribute",
+      "type": "attributeGroup",
       "value": {
-        "name": "target",
-        "displayName": "Target Property",
-        "inputType": "string",
-        "defaultValue": "length",
-        "required": "true",
-        "helpTip": "Enter the property name. (default:'length')"
+        "groupName": "Output",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "targetVariable",
+              "displayName": "Output Variable Name",
+              "inputType": "string",
+              "deriveResponseVariable": true,
+              "required": "true",
+              "helpTip": "Name of the variable to which the string length will be assigned"
+            }
+          }
+        ]
       }
     }
   ]

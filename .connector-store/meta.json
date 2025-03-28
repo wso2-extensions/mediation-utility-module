@@ -15,58 +15,54 @@
     ],
     "releases": [
         {
-            "tagName": "v1.0.2",
+            "tagName": "v2.0.0",
             "products": [
-                "MI 4.4.0",
-                "MI 4.3.0",
-                "MI 4.2.0",
-                "MI 4.1.0",
-                "MI 4.0.0"
+                "MI 4.4.0"
             ],
             "operations": [
                 {
-                    "name": "date.GetDate",
-                    "description": "Wso2 connector method",
+                    "name": "Get Date",
+                    "description": "Get Current Date in the provided format",
                     "isHidden": false
                 },
                 {
-                    "name": "math.GetRandomInt",
-                    "description": "Wso2 connector method",
+                    "name": "Generate Random Integer",
+                    "description": "Generate a random integer within the provided range",
                     "isHidden": false
                 },
                 {
-                    "name": "string.LowerCase",
-                    "description": "Wso2 connector method",
+                    "name": "To Lower Case",
+                    "description": "Convert the provided string to lower case",
                     "isHidden": false
                 },
                 {
-                    "name": "string.UpperCase",
-                    "description": "Wso2 connector method",
+                    "name": "To Upper Case",
+                    "description": "Convert the provided string to upper case",
                     "isHidden": false
                 },
                 {
-                    "name": "string.Length",
-                    "description": "Wso2 connector method",
+                    "name": "Get Length",
+                    "description": "Get the length of the provided string",
                     "isHidden": false
                 },
                 {
-                    "name": "string.UUID",
-                    "description": "Wso2 connector method",
+                    "name": "Generate UUID",
+                    "description": "Generate a UUID",
                     "isHidden": false
                 },
                 {
-                    "name": "string.RegexMatcher",
-                    "description": "Wso2 connector method",
+                    "name": "Match Regex",
+                    "description": "Match the provided string with the provided regex pattern",
                     "isHidden": false
                 },
                 {
-                    "name": "signature.Generate",
-                    "description": "Wso2 connector method",
+                    "name": "Generate Signature",
+                    "description": "Generate a signature for the provided payload",
                     "isHidden": false
                 },
                 {
-                    "name": "signature.Verify",
-                    "description": "Wso2 connector method",
+                    "name": "Verify Signature",
+                    "description": "Verify the provided signature for the provided payload",
                     "isHidden": false
                 }
             ],
@@ -74,7 +70,7 @@
             "isHidden": false
         },
         {
-            "tagName": "v1.0.1",
+            "tagName": "v1.0.2",
             "products": [
                 "MI 4.3.0",
                 "MI 4.2.0",

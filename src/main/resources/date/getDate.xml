@@ -16,15 +16,10 @@
   ~ under the License.
   ~
   -->
-<template xmlns="http://ws.apache.org/ns/synapse" name="date.GetDate">
+<template xmlns="http://ws.apache.org/ns/synapse" name="getDate">
     <parameter name="format"/>
-    <parameter name="target"/>
-
+    <parameter name="targetVariable"/>
     <sequence>
-        <log level="full">
-            <property name="format" expression="$func:format"/>
-            <property name="target" expression="$func:target"/>
-        </log>
         <class name="org.wso2.carbon.esb.connector.date.GetDate"/>
     </sequence>
 </template>

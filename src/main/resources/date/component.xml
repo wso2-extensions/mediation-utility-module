@@ -17,11 +17,12 @@
   ~ under the License.
   ~
   -->
-<component name="date" type="synapse/template">
+<component name="date" type="synapse/template" displayName="Date">
     <subComponents>
-        <component name="date.GetDate">
+        <component name="getDate">
             <file>getDate.xml</file>
-            <description>Wso2 connector method</description>
+            <displayName>Get Date</displayName>
+            <description>Get Current Date in the provided format</description>
         </component>
     </subComponents>
 </component>

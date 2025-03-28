@@ -1,8 +1,8 @@
 {
   "connectorName": "Utility",
-  "operationName": "regexMatcher",
-  "title": "Match Regular Expression",
-  "help": "Checks if a string matches the given regular expression pattern and returns a boolean result",
+  "operationName": "toUpperCase",
+  "title": "Transform String to Uppercase",
+  "help": "Converts all characters in the input string to uppercase",
   "elements": [
     {
       "type": "attributeGroup",
@@ -17,18 +17,7 @@
               "inputType": "stringOrExpression",
               "defaultValue": "",
               "required": "true",
-              "helpTip": "The string to check against the regular expression"
-            }
-          },
-          {
-            "type": "attribute",
-            "value": {
-              "name": "regex",
-              "displayName": "Regular Expression",
-              "inputType": "stringOrExpression",
-              "defaultValue": "",
-              "required": "true",
-              "helpTip": "The regular expression pattern to match against the input string"
+              "helpTip": "The string to be converted to uppercase"
             }
           }
         ]
@@ -47,7 +36,7 @@
               "inputType": "string",
               "deriveResponseVariable": true,
               "required": "true",
-              "helpTip": "Name of the variable to which the matching result (true/false) will be assigned"
+              "helpTip": "Name of the variable to which the uppercase string will be assigned"
             }
           }
         ]

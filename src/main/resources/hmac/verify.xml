@@ -16,23 +16,15 @@
   ~ under the License.
   ~
   -->
-<template xmlns="http://ws.apache.org/ns/synapse" name="signature.Verify">
+<template xmlns="http://ws.apache.org/ns/synapse" name="verify">
     <parameter name="payload"/>
     <parameter name="customPayload"/>
     <parameter name="signature"/>
     <parameter name="secret"/>
     <parameter name="algorithm"/>
-    <parameter name="target"/>
+    <parameter name="targetVariable"/>
 
     <sequence>
-        <log level="full">
-            <property name="payload" expression="$func:payload"/>
-            <property name="customPayload" expression="$func:customPayload"/>
-            <property name="customSignature" expression="$func:signature"/>
-            <property name="secret" expression="$func:secret"/>
-            <property name="algorithm" expression="$func:algorithm"/>
-            <property name="target" expression="$func:target"/>
-        </log>
         <class name="org.wso2.carbon.esb.connector.hmac.Verify"/>
     </sequence>
 </template>

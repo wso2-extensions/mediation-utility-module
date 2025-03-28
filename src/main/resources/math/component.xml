@@ -17,11 +17,12 @@
   ~ under the License.
   ~
   -->
-<component name="math" type="synapse/template">
+<component name="math" type="synapse/template" displayName="Math">
     <subComponents>
-        <component name="math.GetRandomInt">
+        <component name="getRandomInt">
             <file>getRandomInt.xml</file>
-            <description>Wso2 connector method</description>
+            <displayName>Generate Random Integer</displayName>
+            <description>Generate Random Integer</description>
         </component>
     </subComponents>
 </component>
