@@ -33,17 +33,17 @@
                 {
                     "name": "To Lower Case",
                     "description": "Convert the provided string to lower case",
-                    "isHidden": false
+                    "isHidden": true
                 },
                 {
                     "name": "To Upper Case",
                     "description": "Convert the provided string to upper case",
-                    "isHidden": false
+                    "isHidden": true
                 },
                 {
                     "name": "Get Length",
                     "description": "Get the length of the provided string",
-                    "isHidden": false
+                    "isHidden": true
                 },
                 {
                     "name": "Generate UUID",

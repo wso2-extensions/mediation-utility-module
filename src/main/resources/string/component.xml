@@ -20,16 +20,19 @@
 <component name="string" type="synapse/template" displayName="String">
     <subComponents>
         <component name="toUpperCase">
+            <hidden>true</hidden>
             <file>toUpperCase.xml</file>
             <displayName>To Upper Case</displayName>
             <description>Transform to Upper Case</description>
         </component>
         <component name="toLowerCase">
+            <hidden>true</hidden>
             <file>toLowerCase.xml</file>
             <displayName>To Lower Case</displayName>
             <description>Transform to Lower Case</description>
         </component>
         <component name="length">
+            <hidden>true</hidden>
             <file>length.xml</file>
             <displayName>Get Length</displayName>
             <description>Length of the provided string</description>
