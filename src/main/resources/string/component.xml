@@ -21,13 +21,13 @@
     <subComponents>
         <component name="toUpperCase">
             <file>toUpperCase.xml</file>
-            <displayName>To Lower Case</displayName>
-            <description>Transform to Lower Case</description>
+            <displayName>To Upper Case</displayName>
+            <description>Transform to Upper Case</description>
         </component>
         <component name="toLowerCase">
             <file>toLowerCase.xml</file>
-            <displayName>To Upper Case</displayName>
-            <description>Transform to Upper Case</description>
+            <displayName>To Lower Case</displayName>
+            <description>Transform to Lower Case</description>
         </component>
         <component name="length">
             <file>length.xml</file>
