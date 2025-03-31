@@ -48,19 +48,19 @@ public class Verify extends AbstractConnector {
                 Constant.CUSTOM_PAYLOAD);
         Optional<String> customSignatureOptional = PropertyReader.getStringProperty(messageContext, Constant.SIGNATURE);
         Optional<String> secretOptional = PropertyReader.getStringProperty(messageContext, Constant.SECRET);
-        Optional<String> saveToPropertyOptional = PropertyReader.getStringProperty(messageContext, Constant.TARGET);
+        Optional<String> saveToVariableOptional = PropertyReader.getStringProperty(messageContext, Constant.TARGET);
         String payload = null;
         try {
             payload = HMACUtils.getPayload(messageContext, payloadFromOptional, customPayloadOptional);
             String customSignature = customSignatureOptional.orElse("");
             String secret = secretOptional.orElse("");
-            String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_VERIFY_RESULT_TO);
+            String saveToVariable = saveToVariableOptional.orElse(Constant.SAVE_VERIFY_RESULT_TO);
             HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, Constant.ALGORITHM,
                     HMACAlgorithm.class, HMACAlgorithm.HMACSHA1);
             boolean verifyResult;
             //Verify the payload using the signature
             verifyResult = HMACVerify.verify(payload, secret, algorithm.toString(), customSignature);
-            messageContext.setProperty(saveToProperty, verifyResult);
+            messageContext.setVariable(saveToVariable, verifyResult);
         } catch (NoSuchContentTypeException e) {
             log.error("Invalid Content-Type: ", e);
         } catch (PayloadNotFoundException e) {

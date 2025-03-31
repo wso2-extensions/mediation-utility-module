@@ -16,17 +16,12 @@
   ~ under the License.
   ~
   -->
-<template xmlns="http://ws.apache.org/ns/synapse" name="string.RegexMatcher">
+<template xmlns="http://ws.apache.org/ns/synapse" name="regexMatcher">
     <parameter name="regex"/>
     <parameter name="inputString"/>
-    <parameter name="target"/>
+    <parameter name="targetVariable"/>
 
     <sequence>
-        <log level="full">
-            <property name="regex" expression="$func:regex"/>
-            <property name="inputString" expression="$func:inputString"/>
-            <property name="target" expression="$func:target"/>
-        </log>
         <class name="org.wso2.carbon.esb.connector.string.RegexMatcher"/>
     </sequence>
 </template>

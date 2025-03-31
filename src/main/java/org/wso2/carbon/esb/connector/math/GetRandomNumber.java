@@ -38,15 +38,15 @@ public class GetRandomNumber extends AbstractConnector {
         //Read the properties form message context
         Optional<Integer> originOptional = getIntProperty(messageContext, Constant.LOWER_BOUND);
         Optional<Integer> boundOptional = getIntProperty(messageContext, Constant.UPPER_BOUND);
-        Optional<String> saveToPropertyOptional = getStringProperty(messageContext, Constant.TARGET);
-        String saveTo = saveToPropertyOptional.orElse(Constant.SAVE_TO_PROPERTY);
+        Optional<String> saveToVariableOptional = getStringProperty(messageContext, Constant.TARGET);
+        String saveTo = saveToVariableOptional.orElse(Constant.SAVE_TO_PROPERTY);
         int origin = originOptional.orElse(Constant.INT_MIN);
         int bound = boundOptional.orElse(Constant.INT_MAX);
         int randomNumber;
         try {
             //Get the random number
             randomNumber = RandomNumberGenerator.generateRandomInteger(origin, bound);
-            messageContext.setProperty(saveTo, randomNumber);
+            messageContext.setVariable(saveTo, randomNumber);
         } catch (InvalidBoundException e) {
             log.error("Invalid bound provided.", e.getCause());
         }

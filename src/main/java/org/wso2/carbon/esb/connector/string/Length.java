@@ -35,11 +35,11 @@ public class Length extends AbstractConnector {
     public void connect(MessageContext messageContext) throws ConnectException {
         //Read the properties from message context
         Optional<String> stringOptional = getStringProperty(messageContext, Constant.INPUT_STRING);
-        Optional<String> saveToPropertyOptional = getStringProperty(messageContext, Constant.TARGET);
+        Optional<String> saveToVariableOptional = getStringProperty(messageContext, Constant.TARGET);
         String string = stringOptional.orElse("");
-        String saveTo = saveToPropertyOptional.orElse(Constant.SAVE_TO_PROPERTY_LENGTH);
+        String saveTo = saveToVariableOptional.orElse(Constant.SAVE_TO_PROPERTY_LENGTH);
         //Calculate the length of the string
         int length = StringUtils.length(string);
-        messageContext.setProperty(saveTo, length);
+        messageContext.setVariable(saveTo, length);
     }
 }

@@ -1,78 +1,102 @@
 {
   "connectorName": "Utility",
-  "operationName": "signature.Generate",
-  "title": "",
-  "help": "",
+  "operationName": "sign",
+  "title": "Generate Signature",
+  "help": "Creates a digital signature using the specified payload and algorithm",
   "elements": [
     {
-      "type": "attribute",
+      "type": "attributeGroup",
       "value": {
-        "name": "payload",
-        "displayName": "Payload",
-        "inputType": "comboOrExpression",
-        "defaultValue": "Body",
-        "required": "false",
-        "comboValues": [
-          "Body",
-          "Custom"
-        ],
-        "helpTip": ""
-      }
-    },
-    {
-      "type": "attribute",
-      "value": {
-        "name": "customPayload",
-        "displayName": "Custom Payload",
-        "inputType": "stringOrExpression",
-        "defaultValue": "",
-        "required": "false",
-        "helpTip": "Connection to be used",
-        "enableCondition": [
+        "groupName": "Input",
+        "elements": [
           {
-            "payload": "Custom"
+            "type": "attribute",
+            "value": {
+              "name": "payload",
+              "displayName": "Payload Source",
+              "inputType": "comboOrExpression",
+              "defaultValue": "Body",
+              "required": "false",
+              "comboValues": [
+                "Body",
+                "Custom"
+              ],
+              "helpTip": "Source of the payload to sign - either message Body or a Custom value"
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "customPayload",
+              "displayName": "Custom Payload",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "false",
+              "helpTip": "The custom payload to be signed",
+              "enableCondition": [
+                {
+                  "payload": "Custom"
+                }
+              ]
+            }
+          },
+          {
+            "type": "attribute",
+            "value": {
+              "name": "secret",
+              "displayName": "Secret Key",
+              "inputType": "stringOrExpression",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "The secret key used to generate the signature"
+            }
           }
         ]
       }
     },
     {
-      "type": "attribute",
+      "type": "attributeGroup",
       "value": {
-        "name": "secret",
-        "displayName": "Secret",
-        "inputType": "stringOrExpression",
-        "defaultValue": "",
-        "required": "true",
-        "helpTip": "Connection to be used"
+        "groupName": "Configuration",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "algorithm",
+              "displayName": "Signature Algorithm",
+              "inputType": "comboOrExpression",
+              "defaultValue": "HMACSHA1",
+              "required": "false",
+              "comboValues": [
+                "HMACSHA1",
+                "HMACSHA256",
+                "HMACSHA384",
+                "HMACSHA512",
+                "HMACMD5"
+              ],
+              "helpTip": "The algorithm to use for generating the signature"
+            }
+          }
+        ]
       }
     },
     {
-      "type": "attribute",
+      "type": "attributeGroup",
       "value": {
-        "name": "algorithm",
-        "displayName": "Algorithm",
-        "inputType": "comboOrExpression",
-        "defaultValue": "HMACSHA1",
-        "required": "false",
-        "comboValues": [
-          "HMACSHA1",
-          "HMACSHA256",
-          "HMACSHA384",
-          "HMACSHA512",
-          "HMACMD5"
-        ],
-        "helpTip": "Is there a header in the CSV payload ? Default is Absent"
-      }
-    },
-    {
-      "type": "attribute",
-      "value": {
-        "name": "target",
-        "displayName": "Target Property",
-        "inputType": "stringOrExpression",
-        "defaultValue": "sign",
-        "required": "true",
-        "helpTip": "Enter the property name. (default:'sign')"
+        "groupName": "Output",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "targetVariable",
+              "displayName": "Output Variable Name",
+              "inputType": "string",
+              "deriveResponseVariable": true,
+              "required": "true",
+              "helpTip": "Name of the variable to which the signature output should be assigned"
+            }
+          }
+        ]
       }
     }
   ]

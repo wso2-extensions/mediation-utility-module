@@ -18,8 +18,8 @@ the [connector store](https://store.wso2.com/store/assets/esbconnector/list) and
 
 | Connector version                                                    | Supported product versions |
 |----------------------------------------------------------------------|----------------------------|
-| [1.0.1](https://github.com/wso2-extensions/mediation-utility-module) | MI 4.1.0, MI 4.0.0         |
-| [1.0.0](https://github.com/wso2-extensions/mediation-utility-module) | MI 4.1.0, MI 4.0.0         |
+| [2.0.0](https://github.com/wso2-extensions/mediation-utility-module) | MI 4.4.0                   |
+| [1.0.2](https://github.com/wso2-extensions/mediation-utility-module) | MI 4.1.0, MI 4.0.0         |
 
 For older versions, see the details in the connector store.
 

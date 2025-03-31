@@ -1,18 +1,26 @@
 {
   "connectorName": "Utility",
-  "operationName": "string.UUID",
-  "title": "Generate a random UUID",
-  "help": "",
+  "operationName": "randomUUID",
+  "title": "Generate Random UUID",
+  "help": "Generates a random Universally Unique Identifier (UUID) in standard format",
   "elements": [
     {
-      "type": "attribute",
+      "type": "attributeGroup",
       "value": {
-        "name": "target",
-        "displayName": "Target Property",
-        "inputType": "string",
-        "defaultValue": "uuid",
-        "required": "true",
-        "helpTip": "Enter the property name. (default:'uuid')"
+        "groupName": "Output",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "targetVariable",
+              "displayName": "Output Variable Name",
+              "inputType": "string",
+              "deriveResponseVariable": true,
+              "required": "true",
+              "helpTip": "Name of the variable to which the generated UUID will be assigned"
+            }
+          }
+        ]
       }
     }
   ]

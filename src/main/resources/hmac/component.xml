@@ -17,15 +17,17 @@
   ~ under the License.
   ~
   -->
-<component name="hmac" type="synapse/template">
+<component name="hmac" type="synapse/template" displayName="Signature">
     <subComponents>
-        <component name="signature.Generate">
+        <component name="sign">
             <file>sign.xml</file>
-            <description>Wso2 connector method</description>
+            <displayName>Generate Signature</displayName>
+            <description>Generate Signature for a given payload</description>
         </component>
-        <component name="signature.Verify">
+        <component name="verify">
             <file>verify.xml</file>
-            <description>Wso2 connector method</description>
+            <displayName>Verify Signature</displayName>
+            <description>Verify the signature of a given payload</description>
         </component>
     </subComponents>
 </component>

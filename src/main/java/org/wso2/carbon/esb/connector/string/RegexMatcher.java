@@ -37,14 +37,14 @@ public class RegexMatcher extends AbstractConnector {
 
         Optional<String> inputOptional = getStringProperty(messageContext, Constant.INPUT_STRING);
         Optional<String> regexOptional = getStringProperty(messageContext, Constant.REGEX);
-        Optional<String> saveToPropertyOptional = getStringProperty(messageContext, Constant.TARGET);
+        Optional<String> saveToVariableOptional = getStringProperty(messageContext, Constant.TARGET);
         String input = inputOptional.orElse("");
         String regex = regexOptional.orElse("");
-        String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_TO_PROPERTY_REGEX_MATCHING);
+        String saveToVariable = saveToVariableOptional.orElse(Constant.SAVE_TO_PROPERTY_REGEX_MATCHING);
         try {
             //check the string with the regex
             Boolean matching = matches(regex, input);
-            messageContext.setProperty(saveToProperty, matching.toString());
+            messageContext.setVariable(saveToVariable, matching.toString());
         } catch (PatternSyntaxException e) {
             log.error("Invalid regular expression:", e);
         }

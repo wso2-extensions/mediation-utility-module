@@ -16,17 +16,11 @@
   ~ under the License.
   ~
   -->
-<template xmlns="http://ws.apache.org/ns/synapse" name="math.GetRandomInt">
+<template xmlns="http://ws.apache.org/ns/synapse" name="getRandomInt">
     <parameter name="lowerBound"/>
     <parameter name="upperBound"/>
-    <parameter name="target"/>
-
+    <parameter name="targetVariable"/>
     <sequence>
-        <log level="full">
-            <property name="lowerBound" expression="$func:lowerBound"/>
-            <property name="upperBound" expression="$func:upperBound"/>
-            <property name="target" expression="$func:target"/>
-        </log>
         <class name="org.wso2.carbon.esb.connector.math.GetRandomNumber"/>
     </sequence>
 </template>

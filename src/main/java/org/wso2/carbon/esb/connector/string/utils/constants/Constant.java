@@ -27,6 +27,6 @@ public class Constant {
     public static final String SAVE_TO_PROPERTY_REGEX_MATCHING = "match";
 
     public static final String INPUT_STRING="inputString";
-    public static final String TARGET="target";
+    public static final String TARGET="targetVariable";
     public static final String REGEX="regex";
 }

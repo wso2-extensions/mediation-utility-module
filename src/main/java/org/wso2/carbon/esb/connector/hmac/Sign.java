@@ -47,17 +47,17 @@ public class Sign extends AbstractConnector {
         Optional<String> customPayloadOptional = PropertyReader.getStringProperty(messageContext,
                 Constant.CUSTOM_PAYLOAD);
         Optional<String> secretOptional = PropertyReader.getStringProperty(messageContext, Constant.SECRET);
-        Optional<String> saveToPropertyOptional = PropertyReader.getStringProperty(messageContext, Constant.TARGET);
+        Optional<String> saveToVariableOptional = PropertyReader.getStringProperty(messageContext, Constant.TARGET);
         String payload = null;
         try {
             payload = HMACUtils.getPayload(messageContext, payloadFromOptional, customPayloadOptional);
             String secret = secretOptional.orElse("");
-            String saveToProperty = saveToPropertyOptional.orElse(Constant.SAVE_SIGN_RESULT_TO);
+            String saveToVariable = saveToVariableOptional.orElse(Constant.SAVE_SIGN_RESULT_TO);
             HMACAlgorithm algorithm = PropertyReader.getEnumProperty(messageContext, Constant.ALGORITHM,
                     HMACAlgorithm.class, HMACAlgorithm.HMACSHA1);
             //Generate signature for the payload
             String sign = HMACGenerator.generateSignature(payload, secret, algorithm.toString());
-            messageContext.setProperty(saveToProperty, sign);
+            messageContext.setVariable(saveToVariable, sign);
         } catch (InvalidParameterValueException e) {
             log.error("Parameter value is invalid", e);
         } catch (NoSuchContentTypeException e) {

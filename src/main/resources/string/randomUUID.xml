@@ -16,13 +16,10 @@
   ~ under the License.
   ~
   -->
-<template xmlns="http://ws.apache.org/ns/synapse" name="string.UUID">
-    <parameter name="target"/>
+<template xmlns="http://ws.apache.org/ns/synapse" name="randomUUID">
+    <parameter name="targetVariable"/>
 
     <sequence>
-        <log level="full">
-            <property name="target" expression="$func:target"/>
-        </log>
         <class name="org.wso2.carbon.esb.connector.string.RandomUUID"/>
     </sequence>
 </template>

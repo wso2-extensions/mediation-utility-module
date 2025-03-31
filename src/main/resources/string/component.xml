@@ -17,27 +17,35 @@
   ~ under the License.
   ~
   -->
-<component name="string" type="synapse/template">
+<component name="string" type="synapse/template" displayName="String">
     <subComponents>
-        <component name="string.LowerCase">
-            <file>transformToLowerCase.xml</file>
-            <description>Wso2 connector method</description>
+        <component name="toUpperCase">
+            <hidden>true</hidden>
+            <file>toUpperCase.xml</file>
+            <displayName>To Upper Case</displayName>
+            <description>Transform to Upper Case</description>
         </component>
-        <component name="string.UpperCase">
-            <file>transformToUpperCase.xml</file>
-            <description>Wso2 connector method</description>
+        <component name="toLowerCase">
+            <hidden>true</hidden>
+            <file>toLowerCase.xml</file>
+            <displayName>To Lower Case</displayName>
+            <description>Transform to Lower Case</description>
         </component>
-        <component name="string.Length">
+        <component name="length">
+            <hidden>true</hidden>
             <file>length.xml</file>
-            <description>Wso2 connector method</description>
+            <displayName>Get Length</displayName>
+            <description>Length of the provided string</description>
         </component>
-        <component name="string.UUID">
+        <component name="randomUUID">
             <file>randomUUID.xml</file>
-            <description>Wso2 connector method</description>
+            <displayName>Generate UUID</displayName>
+            <description>Generate a random UUID</description>
         </component>
-        <component name="string.RegexMatcher">
+        <component name="regexMatcher">
             <file>regexMatcher.xml</file>
-            <description>Wso2 connector method</description>
+            <displayName>Match Regex</displayName>
+            <description>Regex Matcher</description>
         </component>
     </subComponents>
 </component>
