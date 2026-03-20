@@ -22,11 +22,6 @@
     <parameter name="target"/>
 
     <sequence>
-        <log level="full">
-            <property name="lowerBound" expression="$func:lowerBound"/>
-            <property name="upperBound" expression="$func:upperBound"/>
-            <property name="target" expression="$func:target"/>
-        </log>
         <class name="org.wso2.carbon.esb.connector.math.GetRandomNumber"/>
     </sequence>
 </template>
