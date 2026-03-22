@@ -21,10 +21,6 @@
     <parameter name="target"/>
 
     <sequence>
-        <log level="full">
-            <property name="inputString" expression="$func:inputString"/>
-            <property name="target" expression="$func:target"/>
-        </log>
         <class name="org.wso2.carbon.esb.connector.string.TransformToUpperCase"/>
     </sequence>
 </template>
