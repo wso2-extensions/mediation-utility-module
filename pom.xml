@@ -33,7 +33,7 @@
         <carbon.mediation.version>4.7.109</carbon.mediation.version>
         <org.apache.maven.plugins.version>3.7.0</org.apache.maven.plugins.version>
         <org.apache.commons.version>1.2</org.apache.commons.version>
-        <maven-surefire-plugin.version>2.12.4</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.0.0</maven-surefire-plugin.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <mockito.verion>4.2.0</mockito.verion>
@@ -64,8 +64,20 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.verion}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
             <version>${mockito.verion}</version>
             <scope>test</scope>
         </dependency>
@@ -123,51 +135,6 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <inherited>false</inherited>
                 <configuration>
-                    <argLine>-Xms512m -Xmx1024m -XX:MaxPermSize=128m</argLine>
-                    <disableXmlReport>false</disableXmlReport>
-                    <parallel>false</parallel>
-                    <testFailureIgnore>true</testFailureIgnore>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-                    </suiteXmlFiles>
-                    <systemProperties>
-                        <property>
-                            <name>framework.resource.location</name>
-                            <value>
-                                ${basedir}/src/test/resources/
-                            </value>
-                        </property>
-                        <property>
-                            <name>server.list</name>
-                            <value>
-                                ESB
-                            </value>
-                        </property>
-                        <property>
-                            <name>usedefaultlisteners</name>
-                            <value>false</value>
-                        </property>
-                        <sec.verifier.dir>${basedir}/target/security-verifier/</sec.verifier.dir>
-                        <maven.test.haltafterfailure>false</maven.test.haltafterfailure>
-                        <carbon.zip>
-                            ${basedir}/repository/wso2ei-${product.ei.version}.zip
-                        </carbon.zip>
-                        <instr.file>${basedir}/src/test/resources/instrumentation.txt</instr.file>
-                        <filters.file>${basedir}/src/test/resources/filters.txt</filters.file>
-                        <property>
-                            <name>connector_repo</name>
-                            <value>${basedir}/target</value>
-                        </property>
-                        <property>
-                            <name>connector_name</name>
-                            <value>${connector.name}</value>
-                        </property>
-                        <property>
-                            <name>connector_version</name>
-                            <value>${project.version}</value>
-                        </property>
-                    </systemProperties>
-                    <workingDirectory>${basedir}/target</workingDirectory>
                     <skipTests>${skip-tests}</skipTests>
                 </configuration>
             </plugin>
